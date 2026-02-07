@@ -19,7 +19,7 @@ function formValidate(inputName:HTMLInputElement, inputPrice:HTMLInputElement, i
         console.log("空文字");
         return false;
     }
-    if(inputPrice.value.includes("e") || inputCount.value.includes("e")){
+    if(inputPrice.value === "" || inputCount.value === ""){
         console.log("不適切な文字が含まれています");
         return false;
     }
@@ -51,11 +51,11 @@ function renderTable(cartBody:HTMLTableSectionElement,itemList:CartItem[]):void{
         const tdName = document.createElement("td");
         tdName.textContent = item.name;
         const tdPrice = document.createElement("td");
-        tdPrice.textContent = String(item.price);
+        tdPrice.textContent = String(item.price) + " 円";
         const tdCount = document.createElement("td");
-        tdCount.textContent = String(item.count);
+        tdCount.textContent = String(item.count) + " 個";
         const tdSubTotal = document.createElement("td");
-        tdSubTotal.textContent = String(item.price * item.count);
+        tdSubTotal.textContent = String(item.price * item.count) + " 円";
         tr.appendChild(tdName);
         tr.appendChild(tdPrice);
         tr.appendChild(tdCount);
@@ -80,8 +80,8 @@ addButton.addEventListener("click", ()=>{
     const itemCount = Number(inputCount.value);
     const item:RegisterItem = {name:itemName, price:itemPrice, count:itemCount};
     inputName.value = "";
-    inputPrice.value = "";
-    inputCount.value = "";
+    inputPrice.value = "1";
+    inputCount.value = "1";
     console.log(`商品名: ${itemName}`);
     console.log(`単価: ${itemPrice}`);
     console.log(`数量: ${itemCount}`);
