@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="src/style.css">
+        <script type="module" src="src/main.ts"></script>
+    </head>
+    <body>
+        <header>
+            <h1>買い物リスト管理</h1>
+        </header>
+        <main>
+            <form>
+                <fieldset>
+                    <legend>入力エリア</legend>
+                    <div>
+                        <label for="item-name">商品名</label>
+                        <input type="text" id="item-name" name="item-name">
+                    </div>
+                    <div>
+                        <label for="item-price">単価</label>
+                        <input type="number" id="item-price" name="item-price" value="1" min="1">
+                    </div>
+                    <div>
+                        <label for="item-count">数量</label>
+                        <input type="number" id="item-count" name="item-count" value="1" min="1">
+                    </div>
+                    <div>
+                        <button type="button" id="add-button">追加</button>
+                    </div>
+                </fieldset>
+            </form>
+            <div class="shopping-cart">
+                <!--ここに追加したアイテムがならんでくれたらおもろそう-->
+                <table>
+                    <thead>
+                        <tr>
+                            <th>商品名</th>
+                            <th>単価</th>
+                            <th>数量</th>
+                            <th>小計金額</th>
+                        </tr>
+                    </thead>
+                    <tbody id="cart-items">
+
+                    </tbody>
+                </table>
+            </div>
+            <div class="statistics">
+                <!--ここに統計情報が記載できたらおもろそう-->
+                <p>合計個数: <span id="total-count">0</span>個</p>
+                <p>合計金額: <span id="total-price">0</span>円</p>
+            </div>
+        </main>
+    </body>
+</html>
